@@ -1,31 +1,29 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        inter: ['var(--font-inter)', ...fontFamily.sans],
-        montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
-      },
       colors: {
-        'neon-blue': '#4c2aff',
-        'neon-fuchsia': '#f92a82',
-        'dark-bg': '#0a0a0a',
+        'primary-neon': '#00F0FF', // A bright cyan for neon
+        'secondary-neon': '#FF00F0', // A bright magenta for contrast
+        'dark-background': '#0A0A0A', // Very dark grey
+        'dark-surface': '#1A1A1A', // Slightly lighter dark grey
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Or 'Roboto Mono', 'Space Mono' for techy feel
+        mono: ['Roboto Mono', 'monospace'],
       },
       keyframes: {
-        'shine': {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
+        'pulse-glow': {
+          '0%, 100%': { 'box-shadow': '0 0 5px rgba(0, 240, 255, 0.4)' },
+          '50%': { 'box-shadow': '0 0 20px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.6)' },
         },
       },
       animation: {
-        'shine': 'shine 2s linear infinite',
+        'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
       },
     },
   },
