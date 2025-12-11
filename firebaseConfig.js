@@ -1,20 +1,31 @@
-// This file is for client-side Firebase configuration (e.g., Firebase Authentication,
-// client-side Firestore access for public data, or analytics).
-// For server-side operations (like processing contact forms), use `lib/firebase/admin.js`.
+// lib/firebase.js
+import { initializeApp, getApps } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
+// ---------------- FIREBASE CONFIG ----------------
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID, // Optional, for analytics
+   apiKey: process.env.FIREBASE_API_KEY,
+   authDomain: "tezcodestudios-222b2.firebaseapp.com",
+   projectId: "tezcodestudios-222b2",
+   storageBucket: "tezcodestudios-222b2.firebasestorage.app",
+   messagingSenderId: "708040977490",
+   appId: "1:708040977490:web:b389b1606252a3cb1ac38b",
+   measurementId: "G-T6T9QEGXQG"
 };
 
-// You might initialize Firebase client-side here if needed for other features:
-// import { initializeApp } from "firebase/app";
-// const app = initializeApp(firebaseConfig);
-// export const db = getFirestore(app); // Example for client-side Firestore
+// ---------------- INIT (SAFE FOR NEXT.JS) ----------------
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
-export { firebaseConfig };
+// Firebase services (SSR-safe)
+export const auth = getAuth(app);
+export const firestore = getFirestore(app);
+
+// Analytics (client only, optional)
+export const analytics =
+  typeof window !== "undefined" ?
+  await isSupported().then((ok) => (ok ? getAnalytics(app) : null)) :
+  null;
+
+export default app;
