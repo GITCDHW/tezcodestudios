@@ -1,1 +1,109 @@
-import Link from 'next/link';export default function Home() {  return (    <div className="min-h-screen bg-gray-950 text-white">      {/* Hero Section */}      <section className="relative overflow-hidden py-20 md:py-32 flex items-center justify-center text-center bg-gradient-to-br from-gray-900 to-black">        <div className="absolute inset-0 z-0 opacity-20">          {/* Subtle background pattern or particles */}          <svg className="w-full h-full" fill="none" viewBox="0 0 100 100">            <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">              <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="#333" strokeWidth="0.2" />            </pattern>            <rect width="100%" height="100%" fill="url(#smallGrid)" />          </svg>        </div>        <div className="container mx-auto px-6 relative z-10 max-w-4xl">          <h1 className="text-5xl md:text-7xl font-montserrat font-extrabold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-fuchsia">            TezCodeStudios: Build Your Vision at Light Speed.          </h1>          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300 font-light">            Gen-Z driven software agency delivering MVPs, AI tools, and custom digital products in days, not months.          </p>          <Link href="#contact" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-full shadow-lg text-white bg-gradient-to-r from-neon-blue to-neon-fuchsia hover:from-neon-fuchsia hover:to-neon-blue transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:scale-95">            Start Your Project Today            <svg className="ml-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>            </svg>          </Link>        </div>      </section>      {/* Features Grid Section */}      <section className="py-20 md:py-28 bg-gray-900">        <div className="container mx-auto px-6 max-w-6xl">          <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">            What Sets Us Apart          </h2>          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">            {[              { title: 'Rapid MVP Development', description: 'Delivering fully functional MVPs in days, not months, to get your idea validated fast.' },              { title: 'AI-Powered Innovation', description: 'Leveraging AI + automation to speed up development and craft cutting-edge, intelligent tools.' },              { title: 'Clean, Modern Engineering', description: 'Building with best practices, ensuring scalable, maintainable, and high-performance products.' },              { title: 'Founder-Focused Partnership', description: 'Working closely with startups and solo creators from initial concept to successful launch.' },              { title: 'Transparent & Honest', description: 'Clear pricing models and open communication throughout the entire development process.' },              { title: 'Technical Depth & Creativity', description: 'A team with profound technical expertise fueled by Gen-Z speed and fresh perspectives.' },            ].map((feature, index) => (              <div key={index} className="relative p-8 rounded-xl bg-gray-800 border border-gray-700 shadow-xl shadow-gray-800/20 hover:border-neon-blue transition-all duration-300 group overflow-hidden">                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-neon-fuchsia opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>                <h3 className="text-2xl font-montserrat font-semibold mb-4 text-neon-blue group-hover:text-neon-fuchsia transition-colors duration-300 relative z-10">                  {feature.title}                </h3>                <p className="text-gray-400 leading-relaxed relative z-10">                  {feature.description}                </p>                <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-neon-blue rounded-full mix-blend-screen opacity-0 group-hover:opacity-10 transition-all duration-300 transform group-hover:scale-125"></div>              </div>            ))}          </div>        </div>      </section>      {/* Call-to-Action Section */}      <section id="contact" className="py-20 md:py-28 bg-black">        <div className="container mx-auto px-6 max-w-4xl text-center">          <h2 className="text-4xl md:text-5xl font-montserrat font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-neon-fuchsia to-neon-blue">            Ready to Accelerate Your Idea?          </h2>          <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto">            Stop waiting months. TezCodeStudios turns concepts into fully functional products at an unprecedented pace. Let's build something amazing, fast.          </p>          <Link href="#" className="inline-flex items-center justify-center px-10 py-5 border border-transparent text-lg font-bold rounded-full shadow-lg text-black bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-emerald-400 hover:to-lime-400 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 active:scale-95">            Let's Build Something Amazing            <svg className="ml-3 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>            </svg>          </Link>        </div>      </section>      {/* Footer */}      <footer className="bg-gray-950 py-10 border-t border-gray-800">        <div className="container mx-auto px-6 text-center text-gray-500">          <p className="text-sm">            &copy; {new Date().getFullYear()} TezCodeStudios. All rights reserved.          </p>        </div>      </footer>    </div>  );}
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import Button from '@/components/ui/button';
+
+export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  return (
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={containerVariants}
+      className="relative overflow-hidden"
+    >
+      {/* Hero Section */}
+      <section className="relative h-[80vh] flex items-center justify-center text-center p-4">
+        <div className="absolute inset-0 bg-gradient-to-br from-dark-background to-dark-surface opacity-90 z-0"></div>
+        {/* Neon Grid Overlay (for aesthetic) */}
+        <div className="absolute inset-0 z-0 opacity-10" style={{
+          backgroundImage: `linear-gradient(to right, #00F0FF1A 1px, transparent 1px), linear-gradient(to bottom, #00F0FF1A 1px, transparent 1px)`,
+          backgroundSize: `20px 20px`,
+          maskImage: `radial-gradient(ellipse at center, black 0%, transparent 70%)`
+        }}></div>
+
+        <motion.div variants={containerVariants} className="relative z-10 max-w-4xl mx-auto">
+          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold leading-tight text-primary-neon drop-shadow-lg shadow-primary-neon/50">
+            MVPs in <span className="text-secondary-neon">Days</span>, Not Months.
+          </motion.h1>
+          <motion.p variants={itemVariants} className="mt-6 text-xl md:text-2xl text-gray-300">
+            Transforming startup ideas into market-ready products with Gen-Z speed and creativity.
+          </motion.p>
+          <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" passHref>
+              <Button className="bg-primary-neon text-dark-background hover:bg-opacity-90 animate-pulse-glow border-2 border-primary-neon">
+                Start Your Project Today
+              </Button>
+            </Link>
+            <Link href="/services" passHref>
+              <Button variant="outline" className="text-primary-neon border-primary-neon hover:bg-primary-neon/20">
+                Explore Our Services
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Services Highlight Section */}
+      <section className="py-20 bg-dark-surface text-center px-4">
+        <motion.h2 variants={itemVariants} className="text-4xl font-bold text-gray-50 mb-12">
+          Our Core <span className="text-primary-neon">Capabilities</span>
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {['MVP Development', 'SaaS Solutions', 'AI & Automation Tools'].map((service, index) => (
+            <motion.div
+              key={service}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 240, 255, 0.3)' }}
+              className="p-8 border border-primary-neon/30 rounded-lg shadow-lg bg-dark-background hover:border-primary-neon transition-all duration-300"
+            >
+              <h3 className="text-2xl font-semibold text-primary-neon mb-4">{service}</h3>
+              <p className="text-gray-300">
+                {service === 'MVP Development' && "Launch fast, iterate faster. We build robust Minimum Viable Products that get you in front of users quickly."}
+                {service === 'SaaS Solutions' && "Scalable, secure, and user-friendly SaaS platforms tailored to your business model."}
+                {service === 'AI & Automation Tools' && "Integrate cutting-edge AI and automation to streamline operations and unlock new possibilities."}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div variants={itemVariants} className="mt-16">
+          <Link href="/services" passHref>
+            <Button variant="outline" className="text-secondary-neon border-secondary-neon hover:bg-secondary-neon/20">
+              View All Services
+            </Button>
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-20 text-center px-4 bg-dark-background">
+        <motion.h2 variants={itemVariants} className="text-4xl font-bold text-gray-50 mb-6">
+          Ready to Build Your <span className="text-secondary-neon">Next Big Thing</span>?
+        </motion.h2>
+        <motion.p variants={itemVariants} className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+          Let's discuss your vision and turn it into a high-impact product with speed and precision.
+        </motion.p>
+        <motion.div variants={itemVariants}>
+          <Link href="/contact" passHref>
+            <Button className="bg-secondary-neon text-dark-background hover:bg-opacity-90 animate-pulse-glow border-2 border-secondary-neon">
+              Get a Free Consultation
+            </Button>
+          </Link>
+        </motion.div>
+      </section>
+    </motion.div>
+  );
+}
