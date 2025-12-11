@@ -4,15 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
-// ---------------- FIREBASE CONFIG ----------------
 const firebaseConfig = {
-   apiKey: process.env.FIREBASE_API_KEY,
-   authDomain: "tezcodestudios-222b2.firebaseapp.com",
-   projectId: "tezcodestudios-222b2",
-   storageBucket: "tezcodestudios-222b2.firebasestorage.app",
-   messagingSenderId: "708040977490",
-   appId: "1:708040977490:web:b389b1606252a3cb1ac38b",
-   measurementId: "G-T6T9QEGXQG"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: "tezcodestudios-f6dc6.firebaseapp.com",
+  projectId: "tezcodestudios-f6dc6",
+  storageBucket: "tezcodestudios-f6dc6.firebasestorage.app",
+  messagingSenderId: "252298676430",
+  appId: "1:252298676430:web:8abfc47d7635ac26d5689f"
 };
 
 // ---------------- INIT (SAFE FOR NEXT.JS) ----------------
